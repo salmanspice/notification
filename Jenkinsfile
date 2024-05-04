@@ -56,8 +56,6 @@ post {
 
                     Git Commit: "$GIT_COMMIT"
                     Git Branch: "$GIT_BRANCH"
-		    Git Previous Commit: "$GIT_PREVIOUS_COMMIT"
-                     Git Committer Name: "$GIT_COMMITTER_NAME"
                     Build URL: "$BUILD_URL"
                     Jenkins URL: "$JENKINS_URL"
                     Build TAG: "$BUILD_TAG"
