@@ -5,9 +5,9 @@ pipeline {
 	//   parameters {
 	//   choice choices: ['US','UK','DE','ES','FR','IT','NL'], description: "Choose to which Country Build Deploy .", name: "DEPLOY_BUILD_TO_COUNTRY"
 	//   }
-  parameters {
-        string(name: 'BUILD_NAME', defaultValue: "${env.BUILD_NUMBER}", description: 'Enter the build name')
-    }
+//   parameters {
+//         string(name: 'BUILD_NAME', defaultValue: "${env.BUILD_NUMBER}", description: 'Enter the build name')
+//     }
 //  environment {
 
 //          GIT_COMMIT_DETAILS = "${env.GIT_COMMIT}"
@@ -18,20 +18,20 @@ stages {
       
        steps {
            
-           git branch: 'main', url: 'https://github.com/salmanspice/demo-webpage.git'
+           git branch: 'main', url: 'https://github.com/salmanspice/notification.git'
            
         }
     }
-    stage('Buil the code'){
+    // stage('Buil the code'){
       
-        steps{
-            echo 'Building the code.....'
-              script {
-                    currentBuild.displayName = params.BUILD_NAME+'#'+currentBuild.number
-                }
+    //     steps{
+    //         echo 'Building the code.....'
+    //           script {
+    //                 currentBuild.displayName = params.BUILD_NAME+'#'+currentBuild.number
+    //             }
 	
-        }
-    }
+    //     }
+    // }
     stage('Creating Artifact'){
         steps{
             archiveArtifacts artifacts: '**', followSymlinks: false
