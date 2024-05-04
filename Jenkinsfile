@@ -54,8 +54,8 @@ post {
                 
                     Job ${env.JOB_NAME} (${env.BUILD_NUMBER}) has completed successfully!
 
-                    Git Commit: GIT_COMMIT
-                    Git Branch: GIT_BRANCH
+                    Git Commit: "$GIT_COMMIT"
+                    Git Branch: "$GIT_BRANCH"
                     Build URL: "$BUILD_URL"
                     Jenkins URL: "$JENKINS_URL"
                     Build TAG: "$BUILD_TAG"
