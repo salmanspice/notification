@@ -10,7 +10,7 @@ pipeline {
 //     }
 environment {
 
-     GIT_COMMIT_LIST = sh(script: 'git log $(git describe HEAD --oneline', returnStdout: true).trim()
+     GIT_COMMIT_LIST = sh(script: 'git log $(git describe --tags --abbrev=0) HEAD --oneline', returnStdout: true).trim()
   }
 stages {
     stage('git clone') {
