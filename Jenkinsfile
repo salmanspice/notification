@@ -8,11 +8,10 @@ pipeline {
 //   parameters {
 //         string(name: 'BUILD_NAME', defaultValue: "${env.BUILD_NUMBER}", description: 'Enter the build name')
 //     }
-//  environment {
+environment {
 
-//          GIT_COMMIT_DETAILS = "${env.GIT_COMMIT}"
-//          GIT_BRANCH_DETAILS = "${env.GIT_BRANCH}"
-//  }
+     GIT_COMMIT_LIST = sh(script: 'git log $(git describe HEAD --oneline', returnStdout: true).trim()
+  }
 stages {
     stage('git clone') {
       
@@ -57,6 +56,7 @@ post {
                     Git Commit: "$GIT_COMMIT"
                     Git Branch: "$GIT_BRANCH"
                     Build URL: "$BUILD_URL"
+		    Git Commit List: "$GIT_COMMIT_LIST"
                     Jenkins URL: "$JENKINS_URL"
                     Build TAG: "$BUILD_TAG"
                 """,
