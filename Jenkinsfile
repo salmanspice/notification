@@ -57,6 +57,7 @@ post {
                     Git Branch: "$GIT_BRANCH"
                     Build URL: "$BUILD_URL"
 		    Git Commit List: "$GIT_COMMIT_LIST"
+                    Web Link: "$GIT_URL/commit/$GIT_COMMIT
                     Jenkins URL: "$JENKINS_URL"
                     Build TAG: "$BUILD_TAG"
                 """,
