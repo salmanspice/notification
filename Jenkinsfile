@@ -69,6 +69,7 @@ post {
                     Git Commit: "$GIT_COMMIT"
                     Git Branch: "$GIT_BRANCH"
                     Build URL: "$BUILD_URL"
+		    Build User: "$BUILD_USER"
 		    Git Commit List: "$GIT_COMMIT_LIST"
                     Auother Name: "$Author_Name"
 		
