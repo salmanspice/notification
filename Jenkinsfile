@@ -11,6 +11,7 @@ pipeline {
 environment {
 
      GIT_COMMIT_LIST = sh(script: 'git log $(git describe --tags --abbrev=0) HEAD --oneline', returnStdout: true).trim()
+     Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
   }
 stages {
     stage('git clone') {
@@ -57,6 +58,7 @@ post {
                     Git Branch: "$GIT_BRANCH"
                     Build URL: "$BUILD_URL"
 		    Git Commit List: "$GIT_COMMIT_LIST"
+                    Auother Name: "$Author_Name"
                     Web Link: "$GIT_URL/commit/$GIT_COMMIT
                     Jenkins URL: "$JENKINS_URL"
                     Build TAG: "$BUILD_TAG"
