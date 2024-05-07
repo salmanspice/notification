@@ -12,6 +12,7 @@ environment {
 
      GIT_COMMIT_LIST = sh(script: 'git log $(git describe --tags --abbrev=0) HEAD --oneline', returnStdout: true).trim()
      Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
+     BUILD_TRIGGER_BY = currentBuild.getBuildCauses()[0].shortDescription + " / " + currentBuild.getBuildCauses()[0].userId
   }
 stages {
     stage('git clone') {
@@ -59,6 +60,7 @@ post {
                     Build URL: "$BUILD_URL"
 		    Git Commit List: "$GIT_COMMIT_LIST"
                     Auother Name: "$Author_Name"
+		    Build Trigger By: "$BUILD_TRIGGER_BY"
                     Web Link: "$GIT_URL/commit/$GIT_COMMIT
                     Jenkins URL: "$JENKINS_URL"
                     Build TAG: "$BUILD_TAG"
