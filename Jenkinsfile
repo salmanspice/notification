@@ -41,8 +41,11 @@ stages {
 	stage('Get User') {
             steps {
                 script {
-                    def buildUser = currentBuild.causes.find { it.class.name == 'hudson.triggers.TimerTrigger$TimerTriggerCause' }?.authenticationId
-                    echo "User who triggered the build: ${buildUser}"
+                    def buildCause = currentBuild.getBuildCauses()[0]
+                    def userId = buildCause.userId
+                    def userName = buildCause.shortDescription
+                    echo "User ID: ${userId}"
+                    echo "User Name: ${userName}"
                 }
             }
         }
